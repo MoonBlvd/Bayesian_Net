@@ -25,7 +25,7 @@ O = [P_O_T(1,2-observations(1)), 0;
      0, P_O_T(2,2-observations(1))];
 O_list = [O];
 % constant lag
-d = 30;
+d = 5;
 for i = 2:length(observations)
     ['Iter: ',num2str(i)]
     % filtering, use simplified matrix algroithm
@@ -41,7 +41,7 @@ for i = 2:length(observations)
     if i > d
         b = 1;
         for j = i-d+1:i
-            b = b * P_T * O_list(:,:,j);
+            b = b*P_T * O_list(:,:,j);
         end
         b = b*[1;0]; % times the b_{t+1:t}, which is 1.
         smoothed = f_list(i-d,:).*b;

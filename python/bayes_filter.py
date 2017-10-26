@@ -36,7 +36,6 @@ class BayesFilter():
 		
 		f = np.dot(np.dot(O, self.T.T), self.f_list[-1])
 		f = f/sum(f)
-		print f.shape
 		self.f_list.append(f)
 		self.prob.append(f[0])
 
@@ -45,7 +44,6 @@ class BayesFilter():
 		for i in range(self.d):
 			b = np.dot(b, np.dot(self.T,self.O_list[i]))
 		b = np.dot(b, np.array([1,0]))
-		print b.shape
 		# remove the non-useful O matrix
 		self.O_list.popleft()
 
