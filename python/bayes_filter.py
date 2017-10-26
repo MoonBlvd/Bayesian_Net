@@ -5,9 +5,10 @@ from collections import deque
 class BayesFilter():
 	def __init__(self, d, init_O):
 		# transition model, given previous collision, what's the probability of
-		# anotehr collision?
+		# another collision?
 		self.T = np.array([[0.9, 0.1],[0.001,0.999]])
-		
+		self.T = np.array([[0.796, 0.204],[0.003,0.997]])
+
 		# sensor model, given collision, what's the probability of observe
 		# collision?
 		self.P_O_T = np.array([[0.7, 0.3], #given collision, the prob of observation
